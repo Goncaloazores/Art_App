@@ -9,12 +9,18 @@ using Xamarin.Forms.Xaml;
 
 namespace Art
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+   
+
+
+    [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Master : ContentPage
-	{
+    {
+       
+        
         public Master()
         {
             InitializeComponent();
+
 
             MylistView.ItemsSource = new List<string>
             {
@@ -22,7 +28,12 @@ namespace Art
                 "Log out"
             };
 
+            
+
+
         }
+
+
 
         private async Task MylistView_ItemSelectedAsync(object sender, SelectedItemChangedEventArgs e)
         {
@@ -34,11 +45,11 @@ namespace Art
                 return;
 
             }
-            var item = e.SelectedItem ;
+            var item = e.SelectedItem;
 
             switch (item)
             {
-                case "History":
+                case  "History":
                     await App.NavigateMasterDetail(new History());
                     break;
 

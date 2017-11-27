@@ -9,20 +9,21 @@
     <ScrollView Orientation="Vertical" Padding="0" VerticalOptions="FillAndExpand">
         <StackLayout Spacing="0" Padding="0,0">
             <Frame HasShadow="false" BackgroundColor="Transparent" Padding="0">
-                <RelativeLayout BackgroundColor="Olive" Padding="0" VerticalOptions="End">
-                    <Frame HeightRequest="100" WidthRequest="100" BackgroundColor="Purple" Padding="0" HasShadow="false">
+                <RelativeLayout BackgroundColor="Transparent" Padding="0" VerticalOptions="End">
+                    <Frame HeightRequest="100" WidthRequest="100" BackgroundColor="Transparent" Padding="0" HasShadow="false">
                         <Image  Margin="25" Source="resources/drawable/user.png"></Image>
                     </Frame>
-                    <BoxView HeightRequest="100" BackgroundColor="Teal" RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=100}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-100}" />
+                    <BoxView HeightRequest="100" BackgroundColor="#90CAF9" RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=100}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-100}" />
                     <Frame BackgroundColor="Transparent" HasShadow="false" Padding="0" RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=100}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-100}">
                         <Label
-                            YAlign="Center" XAlign="Center"  Margin="0, 40, 15, 5">Hello</Label>
+                            YAlign="Center" XAlign="Center"  Margin="0, 40, 15, 5">User Name</Label>
                     </Frame>
                 </RelativeLayout>
             </Frame>
             <Frame HasShadow="false" BackgroundColor="Transparent"  Margin="0, 0, 0, 0">
 
                 <ListView x:Name="MylistView" ItemSelected="MylistView_ItemSelectedAsync">
+             
 
                 </ListView>
 

@@ -5,9 +5,14 @@
              Title="History">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="History!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            
+            <SearchBar x:Name="SearchBar" TextChanged="OnTextChanged" />
+            
+            
+            <ListView x:Name="historylist" >
+
+
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

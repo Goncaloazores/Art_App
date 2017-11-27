@@ -20,8 +20,12 @@ namespace Art
         public double valor { get; set; }
         public string image { get; set; }
        
-
         public leilao()
+        {
+
+        }
+         
+        public leilao(leilao leilota)
         {
             this.ID = 1;
             this.ID_Obra = 1;

@@ -17,25 +17,39 @@ namespace Art
         DateTime endDate;
         DateTime timer;
         public int ID { get; set; }
-        
-        public Cell (leilao leilota)
+        public string titulo { get; set; }
+        public DateTime data_fim { get; set; }
+        public double valor { get; set; }
+        public string image { get; set; }
+
+
+        public Cell (InfoLeilao leilota)
         {
 
 
             this.ID = leilota.ID;
 			InitializeComponent ();
             lblTitle.Text = leilota.titulo;
+            this.titulo = leilota.titulo;
+            this.valor = leilota.valor;
             timer = leilota.data_fim;
+            this.data_fim = leilota.data_fim;
             endDate = leilota.data_fim;
-            Image.Source = leilota.image;
-            btnRedirect.Clicked += redirect_Clicked;
+
+            //Image.Source = leilota.image;
+            //image = leilota.image;
+           
 
 
         }
 
-        private void redirect_Clicked(object sender, EventArgs e)
+        
+        void OnTapGestureRecognizerTapped(object sender, EventArgs args)
         {
-            Navigation.PushAsync(new Page1(this.ID));
+            var imageSender = (Image)sender;
+            // Do something
+            Navigation.PushAsync(new Detalhes_leilao(this.ID));
+
         }
 
         //Timer
@@ -45,5 +59,9 @@ namespace Art
         {
             this.lblDate.Text = timer.AddSeconds(-1).ToString();
        }
+
+
+        
+
     }
 }

@@ -16,6 +16,14 @@
       <DependentUpon>Cell.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Cell_Compra.xaml.cs">
+      <DependentUpon>Cell_Compra.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Compra.xaml.cs">
+      <DependentUpon>Compra.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Detail.xaml.cs">
       <DependentUpon>Detail.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -24,7 +32,8 @@
       <DependentUpon>History.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)leilao.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\compra.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\leilao.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -32,12 +41,12 @@
       <DependentUpon>Master.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Obras.xaml.cs">
-      <DependentUpon>Obras.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)Leilao.xaml.cs">
+      <DependentUpon>Leilao.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Page1.xaml.cs">
-      <DependentUpon>Page1.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)Detalhes_leilao.xaml.cs">
+      <DependentUpon>Detalhes_leilao.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -70,19 +79,31 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Obras.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Leilao.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Page1.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Detalhes_leilao.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Cell.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Compra.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Cell_Compra.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

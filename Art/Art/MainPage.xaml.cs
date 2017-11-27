@@ -29,8 +29,8 @@ namespace Art
                 Children =
                 {
                     
-                    new Obras(),
-                    new Obras()
+                    new Leilao(),
+                    new Compra()
                 }
             };
 

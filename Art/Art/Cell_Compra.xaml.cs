@@ -10,16 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace Art
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Detail : TabbedPage
+	public partial class Cell_Compra : ContentView
 	{
-        public Detail()
-        {
-            InitializeComponent();
-
-            this.Children.Add(new Leilao());
-            this.Children.Add(new Compra());
-
-
-        }
-    }
+		public Cell_Compra ()
+		{
+			InitializeComponent ();
+		}
+	}
 }
