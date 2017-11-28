@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Net.Http;
 using Newtonsoft.Json;
+using Xamarin.Forms.Platform.Android;
 
 namespace Art
 {
@@ -17,17 +18,17 @@ namespace Art
 	{
         Timer myTimer = new Timer(TimerCallback, null, 0, 1000);
 
-        public string titulo { get; set; }
-        public double valor { get; set; }
-        public DateTime data_fim { get; set; }
-        public Image image { get; set; }
+        //public string titulo { get; set; }
+        //public double valor { get; set; }
+        //public DateTime data_fim { get; set; }
+        //public Image image { get; set; }
 
-        public Detalhes_leilao(int ID)
+        public Detalhes_leilao(int ID, string titulo, double valor, DateTime data_fim, string image)
 
         {
 
             InitializeComponent();
-            Iniciar(ID);
+           
 
 
             AbsoluteLayout peakLayout = new AbsoluteLayout { HeightRequest = 250, BackgroundColor = Color.Black };
@@ -78,11 +79,10 @@ namespace Art
             };
 
             //Add controls into Layout
-            AbsoluteLayout.SetLayoutFlags(overlay, AbsoluteLayoutFlags.All);
-            AbsoluteLayout.SetLayoutBounds(overlay, new Rectangle(0, 1, 1, 0.3));
+          
 
-            AbsoluteLayout.SetLayoutFlags(image, AbsoluteLayoutFlags.All);
-            AbsoluteLayout.SetLayoutBounds(image, new Rectangle(0f, 0f, 1f, 1f));
+            AbsoluteLayout.SetLayoutFlags(imagem, AbsoluteLayoutFlags.All);
+            AbsoluteLayout.SetLayoutBounds(imagem, new Rectangle(0f, 0f, 1f, 1f));
 
             AbsoluteLayout.SetLayoutFlags(title, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(title, new Rectangle(0.1, 0.80, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
@@ -94,7 +94,7 @@ namespace Art
             AbsoluteLayout.SetLayoutBounds(data, new Rectangle(0.99, 0.90, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
             //Add  all controls into Main Layout
-            peakLayout.Children.Add(image);
+            peakLayout.Children.Add(imagem);
             peakLayout.Children.Add(title);
             peakLayout.Children.Add(price);
             peakLayout.Children.Add(data);
@@ -122,64 +122,64 @@ namespace Art
         //receber uma string json
 
 
-        private async void Iniciar(int id)
-            {
-                try
-                {
-                    var leiloes = new HttpClient();
+        //private async void Iniciar(int id)
+        //    {
+        //        try
+        //        {
+        //            var leiloes = new HttpClient();
 
-                    leiloes.DefaultRequestHeaders.Add("token", "Done"); //consegue me dizer se a ligação é segura ou não
+        //            leiloes.DefaultRequestHeaders.Add("token", "Done"); //consegue me dizer se a ligação é segura ou não
 
-                    leiloes.BaseAddress = new Uri("http://localhost:49642/"); //endreço web
+        //            leiloes.BaseAddress = new Uri("http://localhost:49642/"); //endreço web
 
-                    var resp = await leiloes.GetAsync("api/Auction/" + id.ToString()); // -> api/VitirineProd/Get
+        //            var resp = await leiloes.GetAsync("api/Auction/" + id.ToString()); // -> api/VitirineProd/Get
 
-                        if (resp.IsSuccessStatusCode)
-                        {
-                             var respStr = await resp.Content.ReadAsStringAsync();
+        //                if (resp.IsSuccessStatusCode)
+        //                {
+        //                     var respStr = await resp.Content.ReadAsStringAsync();
 
-                            var l = JsonConvert.DeserializeObject<InfoLeilao>(respStr);
-                             this.titulo = l.titulo;
-                             this.valor = l.valor;
-                             this.data_fim = l.data_fim;
-                             this.image = l.image;
+        //                    var l = JsonConvert.DeserializeObject<InfoLeilao>(respStr);
+        //                     this.titulo = l.titulo;
+        //                     this.valor = l.valor;
+        //                     this.data_fim = l.data_fim;
+        //                     this.image = l.image;
                             
-                        }
+        //                }
                        
-                    }
+        //            }
                     
 
-             catch (Exception ex)
-                 {
-                    await this.DisplayAlert("Aviso", ex.Message, "ok");
+        //     catch (Exception ex)
+        //         {
+        //            await this.DisplayAlert("Aviso", ex.Message, "ok");
                     
-                 }
+        //         }
             
 
 
 
-            }
+        //    }
 
 
 
 
-            //myleilao = //resultado da api, a partir do id
+        //    //myleilao = //resultado da api, a partir do id
 
 
 
-            //2º) preencher a estrutura com a info do pedido
+        //    //2º) preencher a estrutura com a info do pedido
 
-            public class InfoLeilao
-            {
-                public int ID { get; set; }
-                public int ID_Obra { get; set; }
-                public int ID_Estado { get; set; }
-                public string titulo { get; set; }
-                public DateTime data_fim { get; set; }
-                public double valor { get; set; }
-                public Image image { get; set; }
+        //    public class InfoLeilao
+        //    {
+        //        public int ID { get; set; }
+        //        public int ID_Obra { get; set; }
+        //        public int ID_Estado { get; set; }
+        //        public string titulo { get; set; }
+        //        public DateTime data_fim { get; set; }
+        //        public double valor { get; set; }
+        //        public Image image { get; set; }
 
-            }
+        //    }
         
 
 

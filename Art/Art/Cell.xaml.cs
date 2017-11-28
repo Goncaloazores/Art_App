@@ -23,7 +23,7 @@ namespace Art
         public string image { get; set; }
 
 
-        public Cell (InfoLeilao leilota)
+        public Cell (leilao leilota)
         {
 
 
@@ -36,9 +36,9 @@ namespace Art
             this.data_fim = leilota.data_fim;
             endDate = leilota.data_fim;
 
-            //Image.Source = leilota.image;
-            //image = leilota.image;
-           
+           // Image.Source = leilota.image;
+            this.image = leilota.image;
+
 
 
         }
@@ -48,7 +48,7 @@ namespace Art
         {
             var imageSender = (Image)sender;
             // Do something
-            Navigation.PushAsync(new Detalhes_leilao(this.ID));
+            Navigation.PushAsync(new Detalhes_leilao(this.ID, this.titulo, this.valor, this.data_fim, this.image));
 
         }
 

@@ -19,7 +19,8 @@ namespace Art
     {
         Timer myTimer;
         static Grid myGrid;
-        Stack<InfoLeilao> myData = new Stack<InfoLeilao>();
+        Stack<leilao> mydata = new Stack<leilao>();
+        
 
 
         public Leilao()
@@ -38,27 +39,23 @@ namespace Art
 
             //}
             Cell cell = null;
-           
 
+
+            for (int i = 50; i > 0; i--)
+            {
+
+                var l = new leilao();
+
+                mydata.Push(new leilao());
+
+            }
 
 
             #region API
             //cenas da api
-            Iniciar();
-
-
-            //for (int i = 50; i > 0; i--)
-            //{
-
-            //    //l = new leilao((i * col + j), (i * col + j).ToString(), i, j);
-
-            //    myData.Push(new leilao());
-
-            //}
-            
 
             int col = 3;
-            int row = myData.Count() / col + 1;
+            int row = mydata.Count() / col + 1;
             for (int i = 0; i < row; i++)
             {
                 for (int j = 0; j < col; j++)
@@ -66,12 +63,17 @@ namespace Art
                     if (i * col + j <= 49)
                     {
 
-                        myGrid.Children.Add(new Cell(myData.Pop()), j, i);
+                        myGrid.Children.Add(new Cell(mydata.Pop()), j, i);
 
 
                     }
                 }
             }
+
+
+         
+
+
             #endregion
 
             #region GRID
@@ -89,44 +91,46 @@ namespace Art
 
         }
 
-        private async void Iniciar()
-        {
-            try
-            {
-                var leiloes = new HttpClient();
+        //private async void Iniciar()
+        //{
+        //    try
+        //    {
+        //        var leiloes = new HttpClient();
 
-                leiloes.DefaultRequestHeaders.Add("token", "Done"); //consegue me dizer se a ligação é segura ou não
+        //        leiloes.DefaultRequestHeaders.Add("token", "Done"); //consegue me dizer se a ligação é segura ou não
 
-                leiloes.BaseAddress = new Uri("http://localhost:49642/"); //endreço web
+        //        leiloes.BaseAddress = new Uri("http://localhost:49642/"); //endreço web
 
-                var resp = await leiloes.GetAsync("api/Auction/"); // -> api/VitirineProd/Get
+        //        var resp = await leiloes.GetAsync("api/auction/"); // -> api/VitirineProd/Get
 
-                if (resp.IsSuccessStatusCode)
-                {
-                    var respStr = await resp.Content.ReadAsStringAsync();
+        //        if (resp.IsSuccessStatusCode)
+        //        {
+        //            var respStr = await resp.Content.ReadAsStringAsync();
 
-                    var l = JsonConvert.DeserializeObject<List<InfoLeilao>>(respStr);
+        //            var l = JsonConvert.DeserializeObject<List<InfoLeilao>>(respStr);
 
-                    foreach (InfoLeilao item in l)
-                    {
-                        this.myData.Push(new InfoLeilao()
-                        {
-                            ID = item.ID,
-                            titulo = item.titulo,
-                            data_fim = item.data_fim,
-                            valor = item.valor,
+        //            foreach (InfoLeilao item in l)
+        //            {
+        //                this.myData.Push(new InfoLeilao()
+        //                {
+        //                    ID = item.ID,
+        //                    titulo = item.titulo,
+        //                    data_fim = item.data_fim,
+        //                    valor = item.valor,
                             
-                        });
-                    }
-                }
-            }
+        //                });
+        //            }
+
+                    
+        //        }
+        //    }
 
 
-            catch (Exception ex)
-            {
-                await this.DisplayAlert("Aviso", ex.Message, "ok");
+        //    catch (Exception ex)
+        //    {
+        //        await this.DisplayAlert("Aviso", ex.Message, "ok");
 
-            }
+        //    }
 
 
 
@@ -146,18 +150,17 @@ namespace Art
 
 
 
-        }
+     }
      
-    }
-    public class InfoLeilao
-    {
-        public int ID { get; set; }
-        public int ID_Obra { get; set; }
-        public int ID_Estado { get; set; }
-        public string titulo { get; set; }
-        public DateTime data_fim { get; set; }
-        public double valor { get; set; }
-        public Image image { get; set; }
+ }
+    //public class InfoLeilao
+    //{
+    //    public int ID { get; set; }
+    //    public int ID_Obra { get; set; }
+    //    public int ID_Estado { get; set; }
+    //    public string titulo { get; set; }
+    //    public DateTime data_fim { get; set; }
+    //    public double valor { get; set; }
+    //    public Image image { get; set; }
 
-    }
-}
+    //}
